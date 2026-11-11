@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+@import 'uniwind';
+
+@theme {
+  /* NEOBRUTALIST PALETTE */
+  --color-ink: #111111;
+  --color-ink-soft: #2b2b2b;
+  --color-paper: #fff8e9;
+  --color-cream: #fff1cf;
+  --color-lime: #c8ff4d;
+  --color-sky: #7bdcf2;
+  --color-pink: #ff7aa2;
+  --color-yellow: #ffd23f;
+  --color-violet: #b8a1ff;
+  --color-mint: #9ff0c0;
+  --color-coral: #ff8a5b;
+  --color-muted: #6b6257;
+  --color-danger: #e63946;
+  --color-success: #18a558;
+  --color-white: #ffffff;
+
+  /* TYPOGRAPHY */
+  --font-sans: 'SpaceGrotesk_400Regular';
+  --font-medium: 'SpaceGrotesk_500Medium';
+  --font-bold: 'SpaceGrotesk_700Bold';
+  --font-display: 'ArchivoBlack_400Regular';
+  --font-mono: 'SpaceGrotesk_500Medium';
+}

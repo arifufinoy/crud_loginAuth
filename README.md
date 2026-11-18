@@ -17,6 +17,17 @@ MVP móvil de **gestión de proyectos académicos y tareas** construido con **Ex
 | Navegación | Expo Router (tabs + stack) |
 | Fuentes | Archivo Black (títulos) + Space Grotesk (apoyo) |
 
+## 1.1 Servidores MCP usados durante el desarrollo
+
+Este proyecto cumple el requisito de integrar dos servidores MCP al flujo de trabajo del agente:
+
+| Servidor MCP | Uso durante el desarrollo | Evidencia en el proyecto |
+| --- | --- | --- |
+| **Supabase MCP** | Consultar y validar el proyecto `shduhgagxavqsheeurbl`, diseñar el esquema y revisar las políticas de acceso. | `supabase/schema.sql`, `src/services/supabase.ts` y `src/services/projects.ts` |
+| **LottieFiles MCP** | Consultar recursos de LottieFiles y seleccionar/validar animaciones para los estados de la app. | `animaciones/*.json` y `src/components/NeoLottie.tsx` |
+
+La configuración del agente está versionada en `.mcp.json`, con ambos servidores remotos autenticados por OAuth. El agente usa Supabase como backend persistente (Auth, Postgres y RLS), mientras Lottie se integra como componente visual reutilizable. Los MCP se utilizan como herramientas de desarrollo; la aplicación móvil consume Supabase y los archivos Lottie de forma directa en tiempo de ejecución.
+
 Animaciones usadas: `dashboard-grid.json` (login), `notification.json` (registro / éxito), `activity-log.json` (cargas), `kpi-meter.json` (dashboard), `folder.json` (proyectos vacíos / confirmaciones), `calendar.json` (tareas vacías).
 
 ---

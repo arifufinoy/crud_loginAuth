@@ -7,11 +7,13 @@ import { cn } from '@/utils/cn';
 export const animations = {
   welcome: require('../../animaciones/dashboard-grid.json'),
   register: require('../../animaciones/notification.json'),
-  loading: require('../../animaciones/activity-log.json'),
+  loading: require('../../animaciones/loading-spinner.json'),
   dashboard: require('../../animaciones/kpi-meter.json'),
   emptyProjects: require('../../animaciones/folder.json'),
+  projectsEmpty: require('../../animaciones/projects-empty.json'),
   emptyTasks: require('../../animaciones/calendar.json'),
   success: require('../../animaciones/notification.json'),
+  taskCreated: require('../../animaciones/task-completed.json'),
   calendar: require('../../animaciones/calendar.json'),
 } as const;
 

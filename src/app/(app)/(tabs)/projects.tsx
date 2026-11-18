@@ -93,7 +93,7 @@ export default function ProjectsScreen() {
                 ? 'Crea un proyecto para agrupar tus tareas, fechas y entregas.'
                 : 'Prueba con otro estado o limpia la búsqueda.'
             }
-            animation="emptyProjects"
+            animation="projectsEmpty"
             actionLabel={allProjects.length === 0 ? 'Crear proyecto' : 'Limpiar filtros'}
             onAction={() => {
               if (allProjects.length === 0) router.push('/(app)/project/new');

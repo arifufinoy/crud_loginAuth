@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import { Modal, Pressable, Text, View } from 'react-native';
 
-import { NeoLottie } from '@/components/NeoLottie';
+import { NeoLottie, type AnimationName } from '@/components/NeoLottie';
 import { NeoButton } from '@/components/ui/NeoButton';
 
 type FeedbackKind = 'success' | 'error';
@@ -10,10 +10,11 @@ interface FeedbackState {
   kind: FeedbackKind;
   title: string;
   message?: string;
+  animation?: AnimationName;
 }
 
 interface FeedbackContextValue {
-  showSuccess: (title: string, message?: string) => void;
+  showSuccess: (title: string, message?: string, animation?: AnimationName) => void;
   showError: (title: string, message?: string) => void;
   hide: () => void;
 }
@@ -23,9 +24,12 @@ const FeedbackContext = createContext<FeedbackContextValue | null>(null);
 export function FeedbackProvider({ children }: { children: React.ReactNode }) {
   const [feedback, setFeedback] = useState<FeedbackState | null>(null);
 
-  const showSuccess = useCallback((title: string, message?: string) => {
-    setFeedback({ kind: 'success', title, message });
-  }, []);
+  const showSuccess = useCallback(
+    (title: string, message?: string, animation: AnimationName = 'success') => {
+      setFeedback({ kind: 'success', title, message, animation });
+    },
+    [],
+  );
 
   const showError = useCallback((title: string, message?: string) => {
     setFeedback({ kind: 'error', title, message });
@@ -62,7 +66,7 @@ export function FeedbackProvider({ children }: { children: React.ReactNode }) {
                 </View>
                 <View className="items-center px-5 pb-6 pt-2">
                   <NeoLottie
-                    name={feedback?.kind === 'error' ? 'register' : 'success'}
+                    name={feedback?.kind === 'error' ? 'register' : feedback?.animation ?? 'success'}
                     className="h-36 w-36"
                     loop={false}
                   />

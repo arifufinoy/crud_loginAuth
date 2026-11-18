@@ -36,7 +36,11 @@ export default function NewTaskScreen() {
     setError('');
     try {
       await createTask(input);
-      showSuccess('Tarea creada', 'Quedó guardada en Supabase y vinculada al proyecto.');
+      showSuccess(
+        'Tarea creada',
+        'Quedó guardada en Supabase y vinculada al proyecto.',
+        'taskCreated',
+      );
       router.back();
     } catch (err) {
       setError(getErrorMessage(err));
